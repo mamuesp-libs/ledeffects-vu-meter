@@ -1,0 +1,26 @@
+author: M.Mueller-Spaeth "mamuesp" <fms1961@gmail.com>
+type: lib
+description: A VU meter with RGB LEDs
+version: 1.0
+
+sources:
+  - src
+
+filesystem:
+  - fs
+
+config_schema:
+  - ["ledeffects.vu_meter", "o", {title: ""}] 
+  - ["ledeffects.vu_meter.background", "s", "100,40,190,0", {title: ""}]
+  - ["ledeffects.vu_meter.color_start", "s", "0,0,255,0", {title: ""}]
+  - ["ledeffects.vu_meter.color_end", "s", "255,0,0,0", {title: ""}]
+  - ["ledeffects.vu_meter.timeout", "i", 20, {title: ""}]
+  - ["ledeffects.vu_meter.threshold", "d", 0.035, {title: ""}]  
+  - ["ledeffects.vu_meter.dim_all", "d", 0.33, {title: ""}]
+
+libs:
+
+tags:
+  - c
+
+manifest_version: 2017-09-29
