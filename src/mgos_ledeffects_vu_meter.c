@@ -63,7 +63,7 @@ static bool mgos_intern_vu_meter_init(mgos_rgbleds* leds, vu_meter_data* vmd)
 
     mgos_intern_vu_meter_get_colors(leds, "vu_meter", vmd, false);
 
-    mgos_rgbleds_clear(leds);
+    mgos_universal_led_clear(leds);
 
     return true;
 }
@@ -90,16 +90,16 @@ static void mgos_intern_vu_meter_loop(mgos_rgbleds* leds)
             mgos_intern_vu_meter_get_colors(leds, "vu_meter", curr_vmd, true);
         }
     }
-    mgos_rgbleds_plot_all(leds, curr_vmd->back_ground);
+    mgos_universal_led_plot_all(leds, curr_vmd->back_ground);
     for (int y = 0; y < leds->panel_height; y++) {
         if (y > threshold) {
             // all columns show the same pixels ...
             for (int x = 0; x < leds->panel_width; x++) {
-                mgos_rgbleds_plot_pixel(leds, x, y, curr_vmd->color_bar[y], false);
+                mgos_universal_led_plot_pixel(leds, x, y, curr_vmd->color_bar[y], false);
             }
         }
     }
-    mgos_rgbleds_show(leds);
+    mgos_universal_led_show(leds);
 
     if (counter == 0) {
         LOG(LL_VERBOSE_DEBUG, ("Level: %.03fV - norm: %ld, threshold: %d", curr_vmd->atd->last_level, curr_vmd->atd->norm_level, threshold));
