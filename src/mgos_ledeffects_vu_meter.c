@@ -136,7 +136,7 @@ void mgos_ledeffects_vu_meter(void* param, mgos_rgbleds_action action)
     }
 }
 
-bool mgos_vu_meter_init(void) {
+bool mgos_ledeffects_vu_meter_init(void) {
   LOG(LL_INFO, ("mgos_vu_meter_init ..."));
   ledmaster_add_effect("ANIM_VU_METER", mgos_ledeffects_vu_meter);
   return true;
